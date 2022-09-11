@@ -1,2 +1,1 @@
-# empty
-empty repository with only a readme
+Assignment 4: Simple Int Stack
