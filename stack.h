@@ -12,13 +12,11 @@
 class Stack
 {
     private:
-
     #define MAX 10  //MAX is maximum size of stack
     int top;
     int stack[MAX];  //Maximum size of Stack
 
     public:
-        
     Stack()
     {
         top = -1;
