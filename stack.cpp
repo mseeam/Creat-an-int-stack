@@ -8,18 +8,29 @@
  *******************************************************************************/
 
 #include "stack.h"
+#include <string>
+
+Stack::Stack()
+{
+    top = -1;
+}
 
 /********************************************************************************
-* Below function is to insert int into stack                                    *
+* Below function is to insert int into stack
+* returns true if success, false if failure                                    *
 ********************************************************************************/
 
 bool Stack::push(int value)
-{
+{   
+    bool push_successful_result=false;
+
     if(top < MAX-1)
     {
         stack[++top] = value;
+        push_successful_result=true;
     }
-    return true;
+
+    return push_successful_result;
 }
 
 /********************************************************************************
@@ -28,13 +39,19 @@ bool Stack::push(int value)
 
 int Stack::pop()
 {   
-    int value=0;
 
     if(top!=-1)
     {  
+        int value=0;
         value = stack[top--];
-    }  
         return value;
+
+    }else{
+
+        throw std::underflow_error("The stack is currently empty, can't pop/remove element !");
+
+    }
+        
 }
 
 /********************************************************************************
@@ -43,8 +60,18 @@ int Stack::pop()
 
 int Stack::peek()
 {
-    int peek_value = stack[top];
-    return peek_value;
+    
+    if(top!=-1)
+    {   
+        int value=0;
+        value = stack[top];
+        return value;
+
+    }else {
+
+        throw std::underflow_error("No element/value on Stack to show ! ");
+    }
+
 }
 
 
@@ -56,8 +83,14 @@ bool Stack::isEmpty()
 {  
   bool is_Empty=false;  
 
-  if(top==-1) {
+  if(top==-1){
+
     is_Empty=true;
+
   }
+
   return is_Empty;
+
 }
+
+
