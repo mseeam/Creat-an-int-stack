@@ -8,25 +8,22 @@
 
 #ifndef STACK_STACK_H
 #define STACK_STACK_H
+#define MAX 10
 
 class Stack
 {
     private:
-    #define MAX 10  //MAX is maximum size of stack
-    int top;
-    int stack[MAX];  //Maximum size of Stack
+        int top;
+        int stack[MAX];  //Maximum size of Stack
 
     public:
-    Stack()
-    {
-        top = -1;
-    }
+        Stack();
 
-    //Declaring all the function
-    bool push(int value);
-    int pop();
-    int peek();
-    bool isEmpty();
+        //Declaring all the function
+        bool push(int);
+        int pop();
+        int peek();
+        bool isEmpty();
 };
 
 #endif //STACK_STACK_H
